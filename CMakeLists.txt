@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.15)
 cmake_policy(VERSION 3.15)
 
-project(LearnOpenGL)
+project(LearnOpenGL C CXX)
 
 set(CMAKE_CXX_STANDARD 17) # this does nothing for MSVC, use target_compile_options below
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -221,7 +221,7 @@ add_library(STB_IMAGE "src/stb_image.cpp")
 set(LIBS ${LIBS} STB_IMAGE)
 
 add_library(GLAD "src/glad.c")
-target_include_directories(GLAD PUBLIC ${CMAKE_SOURCE_DIR}/includes ${CMAKE_SOURCE_DIR}/includes)
+target_include_directories(GLAD PUBLIC includes)
 set(LIBS ${LIBS} GLAD)
 
 macro(makeLink src dest target)
@@ -278,4 +278,4 @@ foreach(CHAPTER ${CHAPTERS})
     endforeach(DEMO)
 endforeach(CHAPTER)
 
-include_directories(${CMAKE_SOURCE_DIR}/includes)
+include_directories(include includes)
