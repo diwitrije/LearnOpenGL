@@ -221,6 +221,7 @@ add_library(STB_IMAGE "src/stb_image.cpp")
 set(LIBS ${LIBS} STB_IMAGE)
 
 add_library(GLAD "src/glad.c")
+include_directories(${CMAKE_SOURCE_DIR}/include)
 set(LIBS ${LIBS} GLAD)
 
 macro(makeLink src dest target)
@@ -277,4 +278,4 @@ foreach(CHAPTER ${CHAPTERS})
     endforeach(DEMO)
 endforeach(CHAPTER)
 
-include_directories(${CMAKE_SOURCE_DIR}/includes)
+include_directories(${CMAKE_SOURCE_DIR}/include)
